@@ -1,0 +1,14 @@
+// Source code is decompiled from a .class file using FernFlower decompiler.
+class CallByValue2 {
+   CallByValue2() {
+   }
+
+   public static void main(String[] var0) {
+      CallByValue1 var1 = new CallByValue1();
+      byte var2 = 15;
+      byte var3 = 20;
+      System.out.println("a and b before call: " + var2 + " " + var3);
+      var1.meth(var2, var3);
+      System.out.println("a and b after call: " + var2 + " " + var3);
+   }
+}

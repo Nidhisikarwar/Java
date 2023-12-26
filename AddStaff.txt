@@ -1,0 +1,174 @@
+package class_files;
+import java.awt.*;
+import javax.swing.*;
+import java.util.*;
+import java.awt.event.*;
+//import com.toedter.calender.JDateChooser;
+
+public class AddStaff extends JFrame/* implements ActionListener*/{
+    Random sid=new Random();
+    int number=sid.nextInt(9999);
+
+    JTextField tfsname,tffname,tfsalary,tfdob,tfaddress,tfemail,tfphone,tfeducation; 
+    JButton add,back;
+
+    AddStaff(){
+        getContentPane().setBackground(Color.WHITE);//background is white
+        setLayout(null);
+
+        JLabel heading=new JLabel("Add Staff ");
+        heading.setBounds(340,35,500,50);
+        heading.setFont(new Font("SAN_SERIF",Font.BOLD,28));
+        heading.setBackground(Color.WHITE);
+        heading.setForeground(Color.BLACK);
+        add(heading);
+
+        JLabel labelsname=new JLabel("Name:");
+        labelsname.setBounds(50,140,180,50);
+        labelsname.setFont(new Font("serif",Font.PLAIN,18));
+        add(labelsname);
+
+        tfsname=new JTextField();
+        tfsname.setBounds(230,130,180,50);
+        add(tfsname);
+
+
+        JLabel labelfname=new JLabel("Fathers Name:");
+        labelfname.setBounds(480,140,180,50);
+        labelfname.setFont(new Font("serif",Font.PLAIN,18));
+        add(labelfname);
+
+        tffname=new JTextField();
+        tffname.setBounds(660,130,180,50);
+        add(tffname);
+
+        JLabel labelsalary=new JLabel("Salary:");
+        labelsalary.setBounds(400,250,170,50);
+        labelsalary.setFont(new Font("serif",Font.PLAIN,18));
+        add(labelsalary);
+
+        tfsalary=new JTextField();
+        tfsalary.setBounds(600,250,180,30);
+        add(tfsalary);
+
+        JLabel labeldob=new JLabel("Date of Birth:");
+        labeldob.setBounds(50,190,170,50);
+        labeldob.setFont(new Font("serif",Font.PLAIN,18));
+        add(labeldob);
+
+        /*JDateChooser dcdob=new JDateChooser();
+        dcdob.setBounds(150,190,170,50);
+        add(dcdob);*/
+
+        tfdob=new JTextField();
+        tfdob.setBounds(230,200,180,50);
+        add(tfdob);
+
+        JLabel labeladdress=new JLabel("Address:");
+        labeladdress.setBounds(50,240,170,60);
+        labeladdress.setFont(new Font("serif",Font.PLAIN,18));
+        add(labeladdress);
+
+        tfaddress =new JTextField();
+        tfaddress.setBounds(230,250,180,30);
+        add(tfaddress);
+
+        JLabel labelemail=new JLabel("Email Address:");
+        labelemail.setBounds(50,290,170,60);
+        labelemail.setFont(new Font("serif",Font.PLAIN,18));
+        add(labelemail);
+
+        tfemail=new JTextField();
+        tfemail.setBounds(230,300,180,30);
+        add(tfemail);
+
+        JLabel labelphone=new JLabel("Phone number:");
+        labelphone.setBounds(50,340,170,60);
+        labelphone.setFont(new Font("serif",Font.PLAIN,18));
+        add(labelphone);
+
+        tfphone=new JTextField();
+        tfphone.setBounds(230,350,180,30);
+        add(tfphone);
+
+        JLabel labeleducation=new JLabel("Highest education:");
+        labeleducation.setBounds(400,240,170,50);
+        labeleducation.setFont(new Font("serif",Font.PLAIN,18));
+        add(labeleducation);
+
+        /*tfeducation=new JTextField();
+        tfeducation.setBounds(600,240,180,30);
+        add(tfeducation); */
+
+        String courses[]={"BBA","BCA","BA","B.COM","BTech","MBA","BSC","MSC","MTech","Phd"};
+        JComboBox cbeducation=new JComboBox(courses);
+        cbeducation.setBounds(600,240,170,50);
+        add(cbeducation);
+
+        JLabel labelstaffid=new JLabel("Staff Id:");
+        labelstaffid.setBounds(50,440,170,50);
+        labelstaffid.setFont(new Font("serif",Font.PLAIN,18));
+        add(labelstaffid);
+
+        JLabel labelsid=new JLabel(""+ number);
+        labelsid.setBounds(230,440,170,50);
+        labelsid.setFont(new Font("serif",Font.PLAIN,18));
+        add(labelsid);
+         
+        add=new JButton("Add Staff Details");
+        add.setBounds(200,520,170,50);
+        add.setFont(new Font("serif",Font.PLAIN,16));
+      //  add.addActionListener(this);
+        add.setBackground(Color.BLACK);
+        add.setForeground(Color.WHITE);
+        add(add);
+        
+
+        back=new JButton("Back");
+        back.setBounds(420,520,170,50);
+        back.setFont(new Font("serif",Font.PLAIN,16));
+       // back.addActionListener(this);
+        back.setBackground(Color.BLACK);
+        back.setForeground(Color.WHITE);
+
+
+        setSize(1000,700);
+        setLocation(300,50);
+        setVisible(true);
+        add(back);
+        
+    }
+
+   /*  public void actionPerformed(ActionEvent ae){
+        if (ae.getSource() == add){
+            String name=tfname.getText();
+            String author=tfauthor.getText();     
+            String npages=tfpage.getText();  
+            String publishername=tfpublisher.getText(); 
+            String price=tfprice.getText();  
+            String edition=tfedition.getText();   
+
+            try{
+                Conn conn=new Conn();
+                String query= "insert into book details('"+name+"','"+author+"','"+npages+"','"+publishername+"','"+price+"','"+edition+"')";
+                conn.s.executeUpdate(query);
+                JOptionPane.showMessageDialog(null, "Book Details Added Successfully");
+                setVisible(false);
+                new Dashboard();
+            }
+            catch(Exception e){
+            e.printStackTrace();
+            }
+        }
+            else{
+
+         setVisible(false);
+        
+    }
+}
+/* */
+    public static void main(String args[]){
+        new AddStaff();
+    }
+}
+  
